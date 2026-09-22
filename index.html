@@ -31,6 +31,9 @@ button{font:inherit;color:inherit}
 .top p{margin:6px 0 0;color:var(--muted);font-size:clamp(14px,1.2vw,17px)}
 .meta{font-size:13px;color:var(--muted);text-align:right;line-height:1.6;white-space:nowrap}
 .meta b{font-family:var(--serif);color:var(--ink);font-size:16px;font-weight:700}
+.meta a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+.meta a:hover{border-color:var(--muted)}
+.meta a[aria-current="page"]{color:var(--ink);font-weight:600;border-color:var(--ink)}
 
 /* 본문 */
 .body{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);min-height:0;padding:clamp(16px,3vh,32px) 0}
@@ -120,7 +123,7 @@ button{font:inherit;color:inherit}
       <h1>채용 유통 6단계</h1>
       <p>모자이크 채용 채널 전략</p>
     </div>
-    <div class="meta"><b>MOZAIQ People Strategy</b><br>Part 1. 채용</div>
+    <div class="meta"><b>MOZAIQ People Strategy</b><br><a href="./" aria-current="page">Part 1. 채용</a> &nbsp;/&nbsp; <a href="./culture.html">Part 2. 조직문화</a></div>
   </header>
 
   <main class="body">
