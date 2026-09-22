@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>MOZAIQ People Strategy · 조직문화 내재화 4단계</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F8F8F4; --ink:#1E2320; --muted:#6E736C; --rule:#D5D8D0;
+  --int:#2E4A3D; --ext:#8E6B43;
+  --r1:#2E4A3D; --r2:#5A7566; --r3:#A9B9AF; --r4:#E4ECE7;
+  --serif:"Nanum Myeongjo","AppleMyungjo","Batang",serif;
+  --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);word-break:keep-all;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.stage-app{height:100%;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(20px,3.2vh,40px) clamp(24px,4vw,64px)}
+
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid var(--ink);padding-bottom:clamp(12px,2vh,20px)}
+.top h1{font-family:var(--serif);font-weight:800;font-size:clamp(28px,3.6vw,48px);line-height:1.15;margin:0;letter-spacing:-.01em}
+.top p{margin:6px 0 0;color:var(--muted);font-size:clamp(14px,1.2vw,17px)}
+.meta{font-size:13px;color:var(--muted);text-align:right;line-height:1.6;white-space:nowrap}
+.meta b{font-family:var(--serif);color:var(--ink);font-size:16px;font-weight:700}
+.meta a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+.meta a:hover{border-color:var(--muted)}
+.meta a[aria-current="page"]{color:var(--ink);font-weight:600;border-color:var(--ink)}
+
+.body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,64px);min-height:0;padding:clamp(16px,3vh,32px) 0}
+
+/* 동심원 */
+.rings-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;gap:14px}
+.rings{width:min(100%,62vh);height:auto;max-height:100%;display:block}
+.ring{cursor:pointer;transition:opacity .2s}
+.ring circle{transition:stroke .2s,stroke-width .2s}
+.ring text{font-family:var(--sans);pointer-events:none}
+.ring .t{font-weight:600;font-size:15px}
+.ring .e{font-size:10.5px;letter-spacing:.06em}
+.ring:hover circle{stroke:var(--ink);stroke-width:1.5}
+.ring:focus{outline:none}
+.ring:focus-visible circle{stroke:var(--ink);stroke-width:2.5}
+.rings.dim .ring:not(.on){opacity:.4}
+.ring.on circle{stroke:var(--ink);stroke-width:2.5}
+.flow-note{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.flow-note::before{content:"";width:28px;border-top:1px solid var(--muted)}
+.flow-note::after{content:"";width:28px;border-top:1px solid var(--muted)}
+
+/* 패널 */
+.panel{border-left:1px solid var(--rule);padding-left:clamp(24px,3vw,48px);display:flex;flex-direction:column;justify-content:center;min-height:0}
+.panel-inner{transition:opacity .18s ease}
+.panel-inner.fade{opacity:0}
+.intro-q{font-family:var(--serif);font-weight:800;font-size:clamp(28px,3vw,44px);line-height:1.3;margin:0 0 12px}
+.intro-sub{font-size:clamp(17px,1.6vw,24px);line-height:1.6;color:var(--muted);margin:0}
+.p-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.p-num{font-family:var(--serif);font-weight:800;font-size:clamp(48px,5.5vw,84px);line-height:1;color:var(--int)}
+.p-grp{font-size:13px;font-weight:600;color:var(--int)}
+.p-title{font-family:var(--serif);font-weight:800;font-size:clamp(26px,2.8vw,40px);line-height:1.25;margin:0 0 clamp(18px,3vh,30px)}
+.items{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--ink)}
+.items li{display:grid;grid-template-columns:9.5em 1fr;gap:4px 24px;padding:clamp(11px,1.8vh,16px) 0;border-top:1px solid var(--rule)}
+.items b{font-family:var(--serif);font-weight:700;font-size:clamp(17px,1.5vw,21px);line-height:1.45}
+.items span{font-size:clamp(14px,1.15vw,16.5px);line-height:1.6;color:#3C423E;padding-top:2px}
+
+.bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid var(--rule);padding-top:12px;font-size:13px;color:var(--muted)}
+.kbd{display:inline-block;border:1px solid var(--rule);padding:0 6px;margin:0 2px;font-size:12px;background:#fff}
+.nav{display:flex;gap:6px}
+.nav button{border:1px solid var(--rule);background:#fff;padding:6px 14px;cursor:pointer}
+.nav button:hover{border-color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){.ring,.ring circle,.panel-inner{transition:none}}
+@media (max-width:860px){
+  html,body{height:auto}
+  .stage-app{height:auto;min-height:100%}
+  .top{flex-direction:column;align-items:flex-start}
+  .meta{text-align:left}
+  .body{grid-template-columns:1fr}
+  .rings{width:min(100%,420px)}
+  .panel{border-left:0;border-top:1px solid var(--rule);padding:24px 0 0}
+  .items li{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="stage-app">
+
+  <header class="top">
+    <div>
+      <h1>조직문화 내재화 4단계</h1>
+      <p>모자이크 조직문화 도입 전략</p>
+    </div>
+    <div class="meta"><b>MOZAIQ People Strategy</b><br><a href="./">Part 1. 채용</a> &nbsp;/&nbsp; <a href="./culture.html" aria-current="page">Part 2. 조직문화</a></div>
+  </header>
+
+  <main class="body">
+    <div class="rings-wrap">
+      <svg class="rings" id="rings" viewBox="0 0 440 440" role="group" aria-label="조직문화 내재화 4단계">
+        <g class="ring" data-i="4" tabindex="0" role="button" aria-label="4단계 일하는 방식">
+          <circle cx="220" cy="220" r="214" fill="var(--r4)" stroke="#C9D6CF" stroke-width="1"/>
+          <text class="t" x="220" y="40" text-anchor="middle" fill="var(--ink)">일하는 방식</text>
+          <text class="e" x="220" y="56" text-anchor="middle" fill="var(--muted)">WAY OF WORKING</text>
+        </g>
+        <g class="ring" data-i="3" tabindex="0" role="button" aria-label="3단계 일하는 태도">
+          <circle cx="220" cy="220" r="160" fill="var(--r3)" stroke="#94A89B" stroke-width="1"/>
+          <text class="t" x="220" y="94" text-anchor="middle" fill="var(--ink)">일하는 태도</text>
+          <text class="e" x="220" y="110" text-anchor="middle" fill="#4B5A51">ATTITUDE</text>
+        </g>
+        <g class="ring" data-i="2" tabindex="0" role="button" aria-label="2단계 제도·규정·경영철학">
+          <circle cx="220" cy="220" r="106" fill="var(--r2)" stroke="#4C6558" stroke-width="1"/>
+          <text class="t" x="220" y="148" text-anchor="middle" fill="#fff">제도·규정·경영철학</text>
+          <text class="e" x="220" y="164" text-anchor="middle" fill="rgba(255,255,255,.75)">SYSTEM</text>
+        </g>
+        <g class="ring" data-i="1" tabindex="0" role="button" aria-label="1단계 핵심가치">
+          <circle cx="220" cy="220" r="52" fill="var(--r1)" stroke="#223A2F" stroke-width="1"/>
+          <text class="t" x="220" y="220" text-anchor="middle" fill="#fff">핵심가치</text>
+          <text class="e" x="220" y="236" text-anchor="middle" fill="rgba(255,255,255,.75)">CORE VALUES</text>
+        </g>
+      </svg>
+      <div class="flow-note">안에서 밖으로</div>
+    </div>
+
+    <section class="panel" aria-live="polite">
+      <div class="panel-inner" id="panel"></div>
+    </section>
+  </main>
+
+  <footer class="bottom">
+    <span><span class="kbd">←</span><span class="kbd">→</span> 또는 <span class="kbd">1</span>~<span class="kbd">4</span> 로 이동, <span class="kbd">0</span> 처음으로</span>
+    <div class="nav">
+      <button type="button" id="prev" aria-label="이전 단계">이전</button>
+      <button type="button" id="next" aria-label="다음 단계">다음</button>
+    </div>
+  </footer>
+</div>
+
+<script>
+const DATA = {
+  1:{title:"핵심가치", grp:"경영철학 · 제도", items:[
+    ["핵심가치 발굴 인터뷰","경영진과 본사·현장 핵심 인재 대상, 이미 작동하는 기준 발굴"],
+    ["컬처덱","미션, 비전, 핵심가치, 판단 기준을 한 권으로 정리"],
+    ["대표 타운홀","창업자가 직접 핵심가치를 전하는 전사 미팅"]]},
+  2:{title:"제도·규정·경영철학", grp:"경영철학 · 제도", items:[
+    ["가치 기반 채용","구조화 면접과 가치 검증 질문"],
+    ["온보딩 체계 구축","입사 첫 30·60·90일 프로그램, 버디 제도"],
+    ["평가 제도","성과와 함께 가치 행동을 평가 항목에 반영"],
+    ["인정·보상 제도","가치를 실천한 구성원을 공식적으로 인정"]]},
+  3:{title:"일하는 태도", grp:"일하는 방식", items:[
+    ["1 on 1 프로세스","리더와 구성원의 정기적인 일대일 대화"],
+    ["피드백 문화","상황·행동·영향 중심의 피드백 방식 정착"],
+    ["리더십 교육","현장 리더 대상, 가치를 행동으로 보여주는 리더 육성"],
+    ["사례 공유","회원 칭찬 사례 등 가치가 드러난 순간을 전사에 공유"]]},
+  4:{title:"일하는 방식", grp:"일하는 방식", items:[
+    ["목표 설정 방식","분기 단위 목표 설정과 점검, 규모에 맞춘 간소화된 OKR"],
+    ["소통 방식","회의 원칙, 보고 체계, 본사와 현장의 정기 소통 채널"],
+    ["서비스 스탠다드","현장 운영 매뉴얼과 품질 점검 루틴"],
+    ["협업 도구","업무 기록과 공유 방식의 표준화"]]}
+};
+const MAX = 4;
+const panel = document.getElementById('panel');
+const svg = document.getElementById('rings');
+const rings = [...document.querySelectorAll('.ring')];
+let cur = 0;
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function render(i){
+  if(i===0){
+    return `<p class="intro-q">Culture Strategy</p>
+      <p class="intro-sub">핵심가치에서 일하는 방식까지, 단계별 도입 방안</p>`;
+  }
+  const d = DATA[i];
+  return `<div class="p-head"><span class="p-num">${i}</span><span class="p-grp">${esc(d.grp)}</span></div>
+    <h2 class="p-title">${esc(d.title)}</h2>
+    <ul class="items">${d.items.map(([b,s])=>`<li><b>${esc(b)}</b><span>${esc(s)}</span></li>`).join('')}</ul>`;
+}
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function go(i){
+  i = Math.max(0, Math.min(MAX, i)); cur = i;
+  rings.forEach(r => { const on = +r.dataset.i === i; r.classList.toggle('on', on); r.setAttribute('aria-pressed', String(on)); });
+  svg.classList.toggle('dim', i !== 0);
+  if(reduce){ panel.innerHTML = render(i); return; }
+  panel.classList.add('fade');
+  setTimeout(()=>{ panel.innerHTML = render(i); panel.classList.remove('fade'); }, 150);
+}
+rings.forEach(r => {
+  r.addEventListener('click', () => go(+r.dataset.i === cur ? 0 : +r.dataset.i));
+  r.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); go(+r.dataset.i === cur ? 0 : +r.dataset.i); } });
+});
+document.getElementById('prev').addEventListener('click', () => go(cur - 1));
+document.getElementById('next').addEventListener('click', () => go(cur + 1));
+document.addEventListener('keydown', e => {
+  if(e.target.closest('input,textarea')) return;
+  if(e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); go(cur + 1); }
+  else if(e.key==='ArrowLeft'||e.key==='ArrowDown'||e.key==='PageUp'){ e.preventDefault(); go(cur - 1); }
+  else if(/^[0-4]$/.test(e.key)){ go(+e.key); }
+  else if(e.key==='Escape'){ go(0); }
+});
+panel.innerHTML = render(0);
+</script>
+</body>
+</html>
