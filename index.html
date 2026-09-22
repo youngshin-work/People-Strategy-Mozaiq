@@ -71,9 +71,9 @@ button{font:inherit;color:inherit}
 .panel-inner{transition:opacity .18s ease}
 .panel-inner.fade{opacity:0}
 .nb{white-space:nowrap}
-.intro-q{font-family:var(--serif);font-weight:800;font-size:clamp(20px,2.1vw,32px);line-height:1.4;margin:0 0 20px}
+.intro-q{font-family:var(--serif);font-weight:800;font-size:clamp(28px,3vw,44px);line-height:1.3;margin:0 0 12px}
 .intro-p{font-size:clamp(15px,1.25vw,18px);line-height:1.8;color:#3C423E;margin:0 0 28px;max-width:30em}
-.hint{font-size:13px;color:var(--muted)}
+.intro-sub{font-size:clamp(17px,1.6vw,24px);line-height:1.6;color:var(--muted);margin:0}
 .kbd{display:inline-block;border:1px solid var(--rule);padding:0 6px;margin:0 2px;font-size:12px;background:#fff}
 
 .p-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
@@ -120,7 +120,7 @@ button{font:inherit;color:inherit}
       <h1>채용 유통 6단계</h1>
       <p>모자이크 채용 채널 전략</p>
     </div>
-    <div class="meta"><b>MOZAIQ People Strategy</b><br>Part 1. 채용 &nbsp;/&nbsp; 2026년 9월 &nbsp;/&nbsp; 김영신</div>
+    <div class="meta"><b>MOZAIQ People Strategy</b><br>Part 1. 채용</div>
   </header>
 
   <main class="body">
@@ -192,9 +192,8 @@ function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;
 
 function render(i){
   if(i===0){
-    return `<p class="intro-q"><span class="nb">급할수록 위에서부터 찾게 되지만,</span><br><span class="nb">좋은 채용은 아래에서부터 쌓입니다.</span></p>
-      <p class="intro-p">아래의 내부 채널은 비용이 낮고 조직에 맞는 사람을 데려옵니다. 위의 외부 채널은 넓게 닿지만 비용이 높고 적합도는 낮아집니다. 바닥이 단단할수록 위의 채널이 적게 필요합니다.</p>
-      <p class="hint">피라미드의 단계를 선택하세요.</p>`;
+    return `<p class="intro-q">Talent Acquisition Strategy</p>
+      <p class="intro-sub">단계별 현황 진단과 실행 방안</p>`;
   }
   const d = DATA[i];
   const color = d.g==='int' ? 'var(--int)' : 'var(--ext)';
